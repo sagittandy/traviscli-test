@@ -1,0 +1,40 @@
+language: java
+dist: trusty
+sudo: required
+jdk:
+- oraclejdk8
+node_js:
+- 6.5.0
+
+#-----------------------------------
+# Install and set up Travis CLI.
+#-----------------------------------
+install:
+
+# Confirm ruby is available.
+- ruby -v
+
+# Install Travis CLI.
+- gem install travis -v 1.8.8 --no-rdoc --no-ri
+
+# Important: Say yes the first time Travis CLI is invoked.
+- echo "y" | travis -v
+
+# Login to your Travis server using your Github Personal Access Token.
+# - travis login --enterprise --api-endpoint https://travis.example.com/api --github-token $GITHUB_PERSONAL_ACCESS_TOKEN
+- travis login --api-endpoint https://travis.com/api --github-token $GITHUB_PERSONAL_ACCESS_TOKEN
+
+# Important: Explicitly set default endpoint into ~/.travis/config.yml
+# - travis endpoint --set-default -e https://travis.example.com/api
+- travis endpoint --set-default -e https://travis.com/api
+
+#-----------------------------------
+# Invoke Travis CLI commands.
+#-----------------------------------
+script:
+
+# Display list of repos.
+- travis repos
+
+# Set an environment variable into Travis Settings.
+- travis env set TEMPORARY_ENV_VAR myTempEnvVarValue --public --repo $TRAVIS_REPO_SLUG
