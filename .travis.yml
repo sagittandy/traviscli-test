@@ -22,11 +22,11 @@ install:
 
 # Login to your Travis server using your Github Personal Access Token.
 # - travis login --enterprise --api-endpoint https://travis.example.com/api --github-token $GITHUB_PERSONAL_ACCESS_TOKEN
-- travis login --api-endpoint https://travis.com/api --github-token $GITHUB_PERSONAL_ACCESS_TOKEN
+- travis login --api-endpoint https://api.travis-ci.org/ --github-token $GITHUB_PERSONAL_ACCESS_TOKEN
 
 # Important: Explicitly set default endpoint into ~/.travis/config.yml
 # - travis endpoint --set-default -e https://travis.example.com/api
-- travis endpoint --set-default -e https://travis.com/api
+- travis endpoint --set-default -e https://api.travis-ci.org/
 
 #-----------------------------------
 # Invoke Travis CLI commands.
