@@ -37,4 +37,5 @@ script:
 - travis repos
 
 # Set an environment variable into Travis Settings.
+- echo "TRAVIS_REPO_SLUG=$TRAVIS_REPO_SLUG"
 - travis env set TEMPORARY_ENV_VAR myTempEnvVarValue --public --repo $TRAVIS_REPO_SLUG
